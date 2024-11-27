@@ -1,0 +1,197 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /*font-family: "Belleza", sans-serif;*/
+             font-family: "Poppins", sans-serif;
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+           
+        }
+
+   /* Estilos gerais da navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 15vh;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    transition: all 0.3s ease-in-out; /* Para animação ao abrir/fechar */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/* Centralizar a logo */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 250%;
+    font-family: "Belleza", sans-serif;
+}
+
+/* Ícone do menu para telas menores */
+.menu-icon {
+    display: none;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Para telas menores */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 15vh;
+        right: 0;
+        background-color: black;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        height: calc(100vh - 15vh);
+        justify-content: flex-start;
+        align-items: center;
+        transform: translateX(100%); /* Esconde o menu fora da tela */
+        visibility: hidden;
+    }
+
+    .nav-links.active {
+        transform: translateX(0); /* Mostra o menu */
+        visibility: visible;
+    }
+
+    .menu-icon {
+        display: block; /* Mostra o ícone */
+    }
+}
+
+
+
+ 
+
+        /* Estilo do vídeo */
+        .video-container {
+    position: relative;
+    width: 100%; /* Ajuste conforme necessário */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0; /* Fixa na parte inferior */
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    color: #fff; /* Texto claro para contraste */
+    text-align: center;
+}
+
+.overlay p {
+    margin: 0 0 10px;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.overlay a {
+    color: #fff;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+
+       #separacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pic-1 > img {
+    margin: 0 auto;
+    width: 100%; /* Adapta a largura à largura do container */
+    height: auto; /* Mantém a proporção da imagem */
+    max-width: 96vw; /* Limita a largura a 96% da largura da tela */
+    max-height: 104vh; /* Limita a altura a 104% da altura da tela */
+}
+
+
+
+
+.flex1{
+ display: flex;
+ flex-wrap: wrap;
+ max-width: 95vw;
+ margin: 0 auto;
+}
+
+img{
+   
+    width: 100%; /* Adapta a largura ao container */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Remove espaços extras ao redor da imagem */
+}
+
+
+
+.flex1 > div {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+    #separacao{
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+    }
+
+
+   #textolink {
+        display: flex;
+        justify-content: center;
+        color: black;
+        text-decoration: none;
+    }
+
+/*
+
+.flex{
+ display: flex
+ flex-wrap: wrap
+ max-width: ...
+ margin: 0 auto
+}
+
+.flex > div {
+    flex: 1 1 200px
+    margin: 10px
+}
+
+*/

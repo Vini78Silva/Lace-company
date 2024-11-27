@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  header {
+    background: #8e8e8e;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 50px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .product img {
+    width: 200px;
+    height: 200px;
+    margin-right: 50px;
+  }
+
+  .product button {
+    background: #8d8d8d;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 25%;
+  }
+
+  /* Carrinho no canto superior direito */
+  .cart-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #909090;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+ .back-btn{
+
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #909090;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+ }
+
+  .cart-dropdown {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Oculto por padrão */
+    z-index: 1000;
+  }
+
+  .cart-dropdown .cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .cart-dropdown .clear-btn {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px auto;
+    display: block;
+    width: 90%;
+  }
+
+  .cart-dropdown p {
+    text-align: center;
+    margin: 10px 0;
+  }

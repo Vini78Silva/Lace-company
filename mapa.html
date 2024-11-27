@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mapa.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="mapa.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Belleza&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Mapa de lojas</title>
+</head>
+<body>
+ 
+
+
+
+<div id="map" style="height: 930px; width: 100%;" class="">   <button class=" back-btn" onclick="voltarPagina()">voltar</button></div>
+
+
+
+
+
+
+
+
+<script>
+    const map = L.map('map').setView([-24.11360965041936, -46.693506640113874], 12); // São Paulo
+
+    // Camada do OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Marcadores
+    const lojas = [
+        { nome: "Lace Mongagua 1", coords: [-24.11360965041936, -46.693506640113874] },
+        { nome: "Lace London", coords: [51.50110220493574, -0.1245443935178684] },
+        { nome: "Lace Paulista", coords: [-23.561328411002506, -46.655887989617696]}, 
+        { nome: "Lace new york ", coords: [40.74821647489789, -73.98516495144841]},
+        { nome: "Lace tokio ", coords: [ 35.671082908443644, 139.81619820760224]},
+        { nome: "Lace Russia", coords: [ 69.35841435279468, 88.18125338483759]},
+        { nome: "Lace Singapura", coords: [ 69.35841435279468, 88.18125338483759]},
+        { nome: "Lace Brasilia", coords: [ -15.79142099841852, -47.883174945968065]},
+        { nome: "Lace São Petersburgo", coords: [ 59.93030102881194, 30.35477526490066 ]},
+        { nome: "Lace Torre Eiffel", coords: [ 48.858259589824016, 2.2944917505926345]},
+        { nome: "Lace Hotel Paris", coords: [ 48.85670170594523, 2.312174008201625]},
+        { nome: "Lace Monaco", coords: [ 43.73596394750847, 7.420318772476128]},
+        { nome: "Lace Nigeria", coords: [ 9.051584198582157, 7.495174361268289]},
+        { nome: "Lace Lianhuashan Park", coords: [ 22.55490292633868, 114.05881591782175]},
+        { nome: "Lace Lujiazui  Xangai", coords: [ 31.237464578403983, 121.50241190064872]},
+        { nome: "Lace Moscou", coords: [55.75392649107364, 37.6222711540617]},
+        { nome: "Lace Sydney", coords: [-33.856670831439786, 151.21529414161108]},
+    ];
+
+    lojas.forEach(loja => {
+        L.marker(loja.coords).addTo(map).bindPopup(loja.nome);
+    });
+
+
+    function voltarPagina() {
+      window.history.back();
+    }
+</script>
+
+
+</body>
+</html>

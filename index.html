@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeo com Conteúdo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Belleza&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Nav Bar -->
+<nav class="navbar">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="nav-links">
+        <a href="#home">Lace x Nike</a>
+        <a href="#lojas">Produtos</a>
+        <a href="#sobre">Lace x Louis Vuitton</a>
+        <a href="#contato">Mapa de lojas</a>
+    </div>
+    <div class="logo">Lace</div>
+</nav>
+
+
+    <!-- Seção do Vídeo -->
+<div class="video-container">
+    <video autoplay muted loop>
+        <source src="202411270055.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+    </video>
+    <div class="overlay">
+        <p>Descubra nossos Lançamentos</p>
+        <a href="produto.html">Saiba mais</a>
+    </div>
+</div>
+
+    
+    <script>
+
+        function toggleMenu() {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.classList.toggle('active');
+            }
+
+
+        // Seleção de elementos
+        const video = document.getElementById('video');
+        const pauseBtn = document.getElementById('pause-btn');
+        const muteBtn = document.getElementById('mute-btn');
+
+        // Controle de pause/play
+        pauseBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                pauseBtn.textContent = 'Pause';
+            } else {
+                video.pause();
+                pauseBtn.textContent = 'Play';
+            }
+        });
+
+        // Controle de mute/unmute
+        muteBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            muteBtn.textContent = video.muted ? 'Unmute' : 'Mute';
+        });
+    </script>
+
+    
+
+    <!--pic-->
+
+    <h1 id="separacao">
+        Explore nossos produtos Lace x Nike 
+    </h1>
+
+    <section class="flex">
+        <div class="pic-1">
+            <img src="imgs/pic nike (1) (1).png" alt="">
+        </div>
+    </section>
+
+    <!--flexbox-->
+
+    <h1 id="separacao">
+        Explore nossos produtos
+    </h1>
+
+
+    <section class="flex1">
+        <div>
+            <img src="imgs/2.png">
+            <p id="textolink">Linha Lace x Nike</p>
+            
+            <a href="mapa.html" id="textolink">Descubra a coleção</a>
+        </div>
+
+        <div >
+            <img src="imgs/1.png" id="lacemeio">
+            <p id="textolink">Linha Lace</p>
+            
+            <a href="mapa.html" id="textolink">Descubra a coleção</a>
+        </div>
+
+        <div>
+            <img src="imgs/lace x louis.jpg" alt="">
+
+            <p id="textolink">Linha Lace x Louis Vuitton</p>
+
+            <a href="mapa.html" id="textolink">Descubra a coleção</a>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
+
+
+
+
+
+    <!--
+    <section class="flex">
+        <div>
+          img
+        </div>
+    </section>
+
+    (criar mais 2 desse)
+    -->

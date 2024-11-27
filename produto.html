@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="script.js">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Belleza&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="produto.css">
+  <title>Lace || Produtos esportivos</title>
+  <link rel="icon" href="imgs/logolace.png" type="image/.png">
+</head>
+<body>
+
+<header>
+  <h1>Artigos esportivos</h1>
+</header>
+
+<!-- Botão do Carrinho -->
+<button class="cart-icon" onclick="toggleCart()">Carrinho</button>
+<!--Botão de voltar-->
+
+  <button class=" back-btn" onclick="voltarPagina()">voltar</button>
+<!-- Dropdown do Carrinho -->
+<div id="cartDropdown" class="cart-dropdown">
+  <div id="cartItems"></div>
+  <button class="clear-btn" onclick="clearCart()">Limpar Carrinho</button>
+</div>
+
+<div class="container">
+  <div class="product">
+    <img src="imgs/Cadarço 1.webp" alt="Produto">
+    <div>
+      <h2> Cadarço Largo BBoy Fat Lace </h2>
+      <p>Preço: R$10,00</p>
+    </div>
+    <button onclick="addToCart('Largo BBoy Fat Lace', 10)">Adicionar ao Carrinho</button>
+  </div>
+
+  <div class="product">
+    <img src="imgs/Cadarço 2.webp" alt="Produto">
+    <div>
+      <h2>Cordões Espesso Trançado </h2>
+      <p>Preço: R$15,50</p>
+    </div>
+    <button onclick="addToCart('Cordões Espesso Trançado', 15.50)">Adicionar ao Carrinho</button>
+  </div>
+
+  <div class="product">
+    <img src="imgs/Cadarço 3.jpg" alt="Produto">
+    <div>
+      <h2>Cadarços Arredondado 12cm</h2>
+      <p>Preço: R$25,99</p>
+    </div>
+    <button onclick="addToCart('Cadarços Arredondado 12cm', 25.99)">Adicionar ao Carrinho</button>
+  </div>
+
+  <div class="product">
+    <img src="imgs/pic nike (1) (1).png" alt="Produto">
+    <div>
+      <h2>Produto 1</h2>
+      <p>Preço: R$50,00</p>
+    </div>
+    <button onclick="addToCart('Produto 1', 50)">Adicionar ao Carrinho</button>
+  </div>
+
+  <div class="product">
+    <img src="imgs/pic nike (1) (1).png" alt="Produto">
+    <div>
+      <h2>Produto 1</h2>
+      <p>Preço: R$50,00</p>
+    </div>
+    <button onclick="addToCart('Produto 1', 50)">Adicionar ao Carrinho</button>
+  </div>
+
+  <div class="product">
+    <img src="imgs/pic nike (1) (1).png" alt="Produto">
+    <div>
+      <h2>Produto 1</h2>
+      <p>Preço: R$50,00</p>
+    </div>
+    <button onclick="addToCart('Produto 1', 50)">Adicionar ao Carrinho</button>
+  </div>
+
+  <div class="product">
+    <img src="imgs/pic nike (1) (1).png" alt="Produto">
+    <div>
+      <h2>Produto 1</h2>
+      <p>Preço: R$50,00</p>
+    </div>
+    <button onclick="addToCart('Produto 1', 50)">Adicionar ao Carrinho</button>
+  </div>
+</div>
+
+
+ <script>
+   // Adicionar item ao carrinho
+ function addToCart(name, price) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCartItems();
+  }
+
+//voltar pagina 
+
+function voltarPagina() {
+      window.history.back();
+    }
+
+  // Exibir os itens no carrinho
+  function displayCartItems() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsDiv = document.getElementById('cartItems');
+    cartItemsDiv.innerHTML = ''; // Limpa os itens antes de exibir
+
+    if (cart.length === 0) {
+      cartItemsDiv.innerHTML = '<p>O carrinho está vazio.</p>';
+      return;
+    }
+
+    let total = 0;
+    cart.forEach((item, index) => {
+      total += item.price;
+
+      const cartItem = document.createElement('div');
+      cartItem.className = 'cart-item';
+      cartItem.innerHTML = `
+        <span>${item.name}:   R$${item.price.toFixed(2)}</span>
+        <button onclick="removeFromCart(${index})">Remover</button>
+      `;
+      cartItemsDiv.appendChild(cartItem);
+    });
+
+    // Adicionar total
+    const totalDiv = document.createElement('div');
+    totalDiv.innerHTML = `<strong>Total: R$${total.toFixed(2)}</strong>`;
+    cartItemsDiv.appendChild(totalDiv);
+  }
+
+  // Remover item do carrinho
+  function removeFromCart(index) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCartItems();
+  }
+
+  // Limpar o carrinho
+  function clearCart() {
+    localStorage.removeItem('cart');
+    displayCartItems();
+  }
+
+  // Alternar visibilidade do dropdown do carrinho
+  function toggleCart() {
+    const cartDropdown = document.getElementById('cartDropdown');
+    cartDropdown.style.display = cartDropdown.style.display === 'block' ? 'none' : 'block';
+  }
+
+  // Exibir os itens no carrinho ao carregar a página
+  document.addEventListener('DOMContentLoaded', displayCartItems);
+
+ </script>
+
+</body>
+</html>
