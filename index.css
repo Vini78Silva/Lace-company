@@ -44,12 +44,13 @@
 
 /* Centralizar a logo */
 .logo {
-    position: absolute;
+   * position: absolute;
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    font-size: 250%;
+    font-size: 190%;
     font-family: "Belleza", sans-serif;
+    text-decoration: none;
 }
 
 /* Ícone do menu para telas menores */
@@ -93,16 +94,16 @@
  
 
         /* Estilo do vídeo */
-        .video-container {
+    .video-container {
     position: relative;
     width: 100%; /* Ajuste conforme necessário */
     margin: 0 auto;
     overflow: hidden;
+    top: 15vh;
 }
 
 video {
     width: 100%;
-    height: 100%;
     display: block;
 }
 
@@ -118,22 +119,38 @@ video {
 
 .overlay p {
     margin: 0 0 10px;
-    font-size: 25px;
-    font-weight: 300;
+    font-size: 3.5vh;
+    font-weight: 600;
 }
 
 .overlay a {
     color: #fff;
     text-decoration: underline;
-    font-size: 20px;
+    font-size: 2.5vh;
 }
 
+/* Media query para telas pequenas, como celulares */
+@media (max-width: 600px) {
+    .overlay p {
+        font-size: 5vw; /* Ajuste para dispositivos menores */
+    }
 
-       #separacao {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .overlay a {
+        font-size: 4vw; /* Ajuste para dispositivos menores */
+    }
 }
+
+/* Media query para telas maiores, como tablets e desktops */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .overlay p {
+        font-size: 3vh; /* Ajuste para tablets */
+    }
+
+    .overlay a {
+        font-size: 2.5vh; /* Ajuste para tablets */
+    }
+}
+
 
 .pic-1 > img {
     margin: 0 auto;
@@ -168,10 +185,22 @@ img{
 }
 
     #separacao{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-top: 10vh;
         margin-bottom: 10vh;
+        padding: 25px;
     }
 
+    #separacao1{
+        padding: 25px;
+        margin-top: 25vh;
+        margin-bottom: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
    #textolink {
         display: flex;
@@ -179,6 +208,106 @@ img{
         color: black;
         text-decoration: none;
     }
+
+  /* Estilos gerais do footer */
+.footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo para a seção à esquerda (informações da empresa) */
+.footer-left {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-left h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-left p {
+    font-size: 14px;
+}
+
+/* Estilo para a seção do meio (informações de contato) */
+.footer-middle {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-middle h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-middle ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-middle li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Estilo para a seção à direita (redes sociais) */
+.footer-right {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-right h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-right li {
+    margin-bottom: 5px;
+}
+
+.footer-right a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-middle, .footer-right {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
 
 /*
 
