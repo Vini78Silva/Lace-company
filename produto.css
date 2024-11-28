@@ -1,112 +1,217 @@
+/* Reset de estilos padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Estilos gerais do body */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  header {
-    background: #8e8e8e;
-    color: white;
-    padding: 10px;
-    text-align: center;
-  }
+/* Estilo do header */
+header {
+  background: #000000;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
 
-  .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-  }
+/* Container geral */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
 
+/* Estilo do produto */
+.product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Imagem do produto */
+.product img {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+}
+
+/* Botão do produto */
+.product button {
+  background: #333333;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 25%;
+}
+
+/* Estilos do ícone de carrinho */
+.cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #909090;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+/* Estilo do botão de voltar */
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+/* Dropdown do carrinho */
+.cart-dropdown {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 500px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: rgb(255, 255, 255);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none; /* Oculto por padrão */
+  z-index: 1000;
+}
+
+/* Item do carrinho no dropdown */
+.cart-dropdown .cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Botão de limpar carrinho */
+.cart-dropdown .clear-btn {
+  background: #00000083;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px auto;
+  display: block;
+  width: 90%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Estilo do texto de aviso no carrinho */
+.cart-dropdown p {
+  text-align: center;
+  margin: 10px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Media Query para dispositivos pequenos (celulares) */
+@media (max-width: 768px) {
+
+  /* Ajuste na disposição do produto */
   .product {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    flex-direction: column; /* Deixa os produtos empilhados em vez de lado a lado */
+    align-items: flex-start; /* Alinha à esquerda */
+    padding: 15px;
+  }
+
+  .product img {
+    width: 100px;
+    height: 100px;
+    margin-right: 0;
+    margin-bottom: 10px; /* Adiciona margem entre a imagem e o texto */
+  }
+
+  .product button {
+    width: 100%; /* Faz o botão ocupar toda a largura disponível */
+    margin-top: 10px;
+  }
+
+  /* Ajuste no tamanho do ícone do carrinho */
+  .cart-icon {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+  }
+
+  /* Ajuste no botão de voltar */
+  .back-btn {
+    top: 40px;
+    left: 500px;
+    padding: 8px 16px;
+    position:static;
+  }
+
+  /* Ajuste no dropdown do carrinho */
+  .cart-dropdown {
+    width: 90%; /* Faz o dropdown ocupar 90% da largura da tela */
+    max-height: 300px; /* Reduz a altura máxima */
+  }
+}
+
+/* Media Query para telas maiores (tablets, desktops) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .product {
+    flex-direction: row; /* Deixa os produtos lado a lado */
+    padding: 30px;
+  }
+
+  .product img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .product button {
+    width: 30%;
+  }
+
+  .cart-dropdown {
+    width: 400px; /* Ajuste para uma tela maior */
+  }
+}
+
+/* Media Query para telas grandes (desktops) */
+@media (min-width: 1025px) {
+  .product {
     padding: 50px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
   }
 
   .product img {
     width: 200px;
     height: 200px;
-    margin-right: 50px;
   }
 
   .product button {
-    background: #8d8d8d;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
     width: 25%;
   }
 
-  /* Carrinho no canto superior direito */
-  .cart-icon {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #909090;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    cursor: pointer;
-  }
-
- .back-btn{
-
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: #909090;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    cursor: pointer;
- }
-
   .cart-dropdown {
-    position: fixed;
-    top: 60px;
-    right: 20px;
-    width: 300px;
-    max-height: 400px;
-    overflow-y: auto;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: none; /* Oculto por padrão */
-    z-index: 1000;
+    width: 500px;
   }
-
-  .cart-dropdown .cart-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .cart-dropdown .clear-btn {
-    background: #f44336;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-    margin: 10px auto;
-    display: block;
-    width: 90%;
-  }
-
-  .cart-dropdown p {
-    text-align: center;
-    margin: 10px 0;
-  }
+}
