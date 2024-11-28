@@ -18,12 +18,12 @@
 <nav class="navbar">
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
     <div class="nav-links">
-        <a href="#home">Lace x Nike</a>
-        <a href="#lojas">Produtos</a>
-        <a href="#sobre">Lace x Louis Vuitton</a>
-        <a href="#contato">Mapa de lojas</a>
+        <a href="produto.html">Lace x Nike</a>
+        <a href="produto.html">Produtos</a>
+        <a href="produto.html">Lace x Louis Vuitton</a>
+        <a href="mapa.html">Mapa de lojas</a>
     </div>
-    <div class="logo"><a href="index.html" class="logo">Lace</a></div>
+    <div class="logo">Lace</div>
 </nav>
 
 
@@ -42,10 +42,15 @@
     
     <script>
 
-        function toggleMenu() {
-                const navLinks = document.querySelector('.nav-links');
-                navLinks.classList.toggle('active');
-            }
+       document.addEventListener("DOMContentLoaded", () => {
+            const menuIcon = document.querySelector(".menu-icon");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuIcon.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        });
+
 
 
         // Seleção de elementos
@@ -64,11 +69,7 @@
             }
         });
 
-        // Controle de mute/unmute
-        muteBtn.addEventListener('click', () => {
-            video.muted = !video.muted;
-            muteBtn.textContent = video.muted ? 'Unmute' : 'Mute';
-        });
+
     </script>
 
     
@@ -94,25 +95,25 @@
 
     <section class="flex1">
         <div>
-            <img src="imgs/2.png">
+                <a href="produto.html"> <img src="imgs/2.png" id="lacemeio"></a>
             <p id="textolink">Linha Lace x Nike</p>
             
-            <a href="mapa.html" id="textolink">Descubra a coleção</a>
+            <a href="produto.html" id="textolink">Descubra a coleção</a>
         </div>
 
         <div >
           <a href="produto.html">  <img src="imgs/1.png" id="lacemeio"></a>
             <p id="textolink">Linha Lace</p>
             
-            <a href="mapa.html" id="textolink">Descubra a coleção</a>
+            <a href="produto.html" id="textolink">Descubra a coleção</a>
         </div>
 
         <div>
-            <img src="imgs/lace x louis.jpg" alt="">
+            <a href="produto.html"> <img src="imgs/lace x louis.jpg" id="lacemeio"></a>
 
             <p id="textolink">Linha Lace x Louis Vuitton</p>
 
-            <a href="mapa.html" id="textolink">Descubra a coleção</a>
+            <a href="produto.html" id="textolink">Descubra a coleção</a>
         </div>
     </section>
     <footer class="footer">

@@ -14,19 +14,90 @@ body {
   box-sizing: border-box;
 }
 
-/* Estilo do header */
-header {
-  background: #000000;
-  color: white;
-  padding: 10px;
-  text-align: center;
+ /* Estilos gerais da navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 15vh;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    transition: all 0.3s ease-in-out; /* Transição suave */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/* Centralizar a logo */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 315%;
+    font-family: "Belleza", sans-serif;
+    text-decoration: none;
+}
+
+/* Ícone do menu para telas menores */
+.menu-icon {
+    display: none; 
+    font-size: 3vh;
+    color: white;
+    cursor: pointer;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 1300px) {
+    .nav-links {
+        position: fixed;
+        top: 15vh;
+        right: 0;
+        background-color: black;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        height: calc(100vh - 15vh);
+        justify-content: flex-start;
+        align-items: center;
+        transform: translateX(100%); /* Menu escondido inicialmente */
+        visibility: hidden;
+        transition: transform 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav-links.active {
+        transform: translateX(0); /* Mostra o menu */
+        visibility: visible;
+    }
+
+    .menu-icon {
+        display: block; /* Mostra o ícone em telas pequenas */
+    }
+}
+
 
 /* Container geral */
 .container {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
+  display: flex;
 }
 
 /* Estilo do produto */
@@ -36,8 +107,9 @@ header {
   align-items: center;
   margin-bottom: 20px;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid black;
   border-radius: 5px;
+  margin-top: 5vh;
 }
 
 /* Imagem do produto */
@@ -49,40 +121,72 @@ header {
 
 /* Botão do produto */
 .product button {
-  background: #333333;
+  background: black;
   color: white;
   border: none;
   padding: 10px;
   cursor: pointer;
   border-radius: 5px;
   width: 25%;
+  margin: 0;
+  margin-top: 15vh;
+  margin-bottom: 0;
 }
 
-/* Estilos do ícone de carrinho */
-.cart-icon {
+/* Container do Carrinho */
+.cart-container {
   position: fixed;
-  top: 20px;
+  top: 37px; /* Ajuste da posição vertical */
+  right: 60px; /* Alinhado à direita */
+  cursor: pointer;
   right: 20px;
-  background: #909090;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 50px;
-  cursor: pointer;
+  margin-right: 35px;
+  z-index: 1000;
 }
 
-/* Estilo do botão de voltar */
-.back-btn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: #000000;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 50px;
-  cursor: pointer;
+/* Ícone do Carrinho */
+.cart-icon {
+  width: 5em;  /* Tamanho em em, ajustando ao tamanho da fonte */
+  height: 5em; /* Usando a mesma unidade para manter as proporções */
+  fill: white; /* Cor branca */ 
+  max-width: 40px;  /* Garantir que o tamanho máximo não seja muito grande */
+  max-height: 40px; /* Ajuste de altura proporcional */
+  z-index: 1000;
 }
+
+/* Contador do Carrinho */
+.cart-count {
+  position: absolute;
+  top: -5px;  /* Ajuste para ficar mais perto do canto superior */
+  right: -35px;  /* Ajuste para não sobrepor o ícone */
+  background-color: transparent;
+  color: white;
+  font-size: 1.5em; /* Usando em para responsividade */
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 25px;  /* Limitar o tamanho máximo */
+  max-height: 25px; /* Limitar o tamanho máximo */
+}
+
+/* Responsividade para telas menores */
+@media screen and (max-width: 768px) {
+  .cart-icon {
+    width: 4em;   /* Tamanho reduzido em telas menores */
+    height: 4em;  /* Mantém a proporção */
+  }
+
+  .cart-count {
+    font-size: 1.2em;  /* Reduzindo o tamanho da fonte para dispositivos pequenos */
+    padding: 2px 4px;
+  }
+}
+
+
+
 
 /* Dropdown do carrinho */
 .cart-dropdown {
@@ -109,20 +213,7 @@ header {
   border-bottom: 1px solid #ddd;
 }
 
-/* Botão de limpar carrinho */
-.cart-dropdown .clear-btn {
-  background: #00000083;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-  margin: 10px auto;
-  display: block;
-  width: 90%;
-  font-family: "Poppins", sans-serif;
-}
+
 
 /* Estilo do texto de aviso no carrinho */
 .cart-dropdown p {
@@ -153,20 +244,6 @@ header {
     margin-top: 10px;
   }
 
-  /* Ajuste no tamanho do ícone do carrinho */
-  .cart-icon {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-  }
-
-  /* Ajuste no botão de voltar */
-  .back-btn {
-    top: 40px;
-    left: 500px;
-    padding: 8px 16px;
-    position:static;
-  }
 
   /* Ajuste no dropdown do carrinho */
   .cart-dropdown {
@@ -214,4 +291,13 @@ header {
   .cart-dropdown {
     width: 500px;
   }
+}
+
+.clear-btn{
+  color: white;
+  background-color: black;
+  border-radius: 3px;
+  right: -130px;
+  display: flex;
+  margin-top: 10px;
 }

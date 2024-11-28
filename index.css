@@ -32,7 +32,7 @@
 .nav-links {
     display: flex;
     gap: 35px;
-    transition: all 0.3s ease-in-out; /* Para animação ao abrir/fechar */
+    transition: all 0.3s ease-in-out; /* Transição suave */
 }
 
 .nav-links a {
@@ -48,7 +48,7 @@
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    font-size: 190%;
+    font-size: 340%;
     font-family: "Belleza", sans-serif;
     text-decoration: none;
 }
@@ -61,8 +61,8 @@
     cursor: pointer;
 }
 
-/* Para telas menores */
-@media (max-width: 768px) {
+/* Ajustes para telas menores */
+@media (max-width: 1300px) {
     .nav-links {
         position: fixed;
         top: 15vh;
@@ -75,8 +75,9 @@
         height: calc(100vh - 15vh);
         justify-content: flex-start;
         align-items: center;
-        transform: translateX(100%); /* Esconde o menu fora da tela */
+        transform: translateX(100%); /* Menu escondido inicialmente */
         visibility: hidden;
+        transition: transform 0.3s ease, visibility 0.3s ease;
     }
 
     .nav-links.active {
@@ -85,18 +86,20 @@
     }
 
     .menu-icon {
-        display: block; /* Mostra o ícone */
+        display: block; /* Mostra o ícone em telas pequenas */
     }
 }
+
 
 
 
  
 
         /* Estilo do vídeo */
-    .video-container {
+  .video-container {
     position: relative;
-    width: 100%; /* Ajuste conforme necessário */
+    width: 100%;
+    height: 90vh; /* Define uma altura específica */
     margin: 0 auto;
     overflow: hidden;
     top: 15vh;
@@ -104,16 +107,18 @@
 
 video {
     width: 100%;
+    height: 100%; /* Ajusta para preencher o contêiner */
+    object-fit: cover; /* Mantém proporção e ajusta ao contêiner */
     display: block;
 }
 
 .overlay {
     position: absolute;
-    bottom: 0; /* Fixa na parte inferior */
+    bottom: 0;
     left: 0;
     width: 100%;
     padding: 20px;
-    color: #fff; /* Texto claro para contraste */
+    color: #fff;
     text-align: center;
 }
 
@@ -129,36 +134,54 @@ video {
     font-size: 2.5vh;
 }
 
-/* Media query para telas pequenas, como celulares */
+/* Media query para telas pequenas */
 @media (max-width: 600px) {
+    .video-container {
+        height: 40vh; /* Reduz a altura para dispositivos menores */
+    }
+
     .overlay p {
-        font-size: 5vw; /* Ajuste para dispositivos menores */
+        font-size: 5vw;
     }
 
     .overlay a {
-        font-size: 4vw; /* Ajuste para dispositivos menores */
+        font-size: 4vw;
     }
 }
 
-/* Media query para telas maiores, como tablets e desktops */
+/* Media query para telas maiores */
 @media (min-width: 601px) and (max-width: 1024px) {
+    .video-container {
+        height: 50vh; /* Altura intermediária para tablets */
+    }
+
     .overlay p {
-        font-size: 3vh; /* Ajuste para tablets */
+        font-size: 3vh;
     }
 
     .overlay a {
-        font-size: 2.5vh; /* Ajuste para tablets */
+        font-size: 2.5vh;
     }
 }
 
 
-.pic-1 > img {
-    margin: 0 auto;
-    width: 100%; /* Adapta a largura à largura do container */
-    height: auto; /* Mantém a proporção da imagem */
-    max-width: 96vw; /* Limita a largura a 96% da largura da tela */
-    max-height: 104vh; /* Limita a altura a 104% da altura da tela */
+
+.flex {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    padding: 20px; /* Espaçamento interno */
 }
+
+.pic-1 img {
+    width: 100%; /* Faz a imagem ocupar 100% da largura do contêiner */
+    height: auto; /* Mantém a proporção original */
+    max-width: 1200px; /* Define um limite máximo para a largura da imagem */
+    object-fit: cover; /* Ajusta o conteúdo para preencher sem distorção */
+    border-radius: 10px; /* Opcional: arredonda as bordas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra para destaque */
+}
+
 
 
 
@@ -184,23 +207,35 @@ img{
     margin: 10px;
 }
 
-    #separacao{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10vh;
-        margin-bottom: 10vh;
-        padding: 25px;
+    #separacao, #separacao1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10vh auto; /* Centraliza verticalmente */
+    padding: 25px;
+    text-align: center; /* Garante que o texto fique centralizado */
+    max-width: 90%; /* Impede que o texto ocupe largura demais */
+    word-wrap: break-word; /* Garante que o texto não ultrapasse os limites */
+}
+
+#separacao1 {
+    margin-top: 25vh; /* Mantém a margem superior maior */
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    #separacao, #separacao1 {
+        margin: 5vh auto; /* Reduz margens para telas menores */
+        padding: 15px; /* Ajusta o espaçamento interno */
+        font-size: 14px; /* Diminui a fonte */
+        line-height: 1.5; /* Melhora o espaçamento entre linhas */
     }
 
-    #separacao1{
-        padding: 25px;
-        margin-top: 25vh;
-        margin-bottom: 10vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    #separacao1 {
+        margin-top: 15vh; /* Reduz margem superior */
     }
+}
+
 
    #textolink {
         display: flex;
